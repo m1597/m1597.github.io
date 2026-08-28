@@ -4,104 +4,124 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="M1597 的个人导航站：常用工具、创作灵感、学习开发与娱乐入口。" />
-    <meta name="theme-color" content="#f5f3ee" />
+    <meta name="theme-color" content="#eaf2ff" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="今天，去哪里？· M1597 Personal Wayfinder" />
+    <meta property="og:description" content="找一个答案，看一张好图，或者直接开始创造。" />
+    <meta property="og:url" content="https://m1597.github.io/" />
+    <meta property="og:image" content="https://m1597.github.io/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="今天，去哪里？· M1597 Personal Wayfinder" />
+    <meta name="twitter:description" content="找一个答案，看一张好图，或者直接开始创造。" />
+    <meta name="twitter:image" content="https://m1597.github.io/og.png" />
+    <link rel="canonical" href="https://m1597.github.io/" />
     <title>M1597 · 个人导航</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="ambient ambient-one" aria-hidden="true"></div>
-    <div class="ambient ambient-two" aria-hidden="true"></div>
+    <div class="page-grid" aria-hidden="true"></div>
 
     <header class="site-header">
       <a class="brand" href="#top" aria-label="返回首页">
-        <span class="brand-mark">M</span>
-        <span>M1597</span>
+        <span class="brand-mark">M/</span>
+        <span><b>M1597</b><small>PERSONAL WAYFINDER</small></span>
       </a>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="切换明暗主题">
-        <span class="theme-icon" aria-hidden="true">◐</span>
-        <span class="theme-label">主题</span>
-      </button>
+      <div class="header-tools">
+        <span class="header-status">ONLINE</span>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="切换明暗主题">
+          <span class="theme-icon" aria-hidden="true">◐</span>
+          <span class="theme-label">切换主题</span>
+        </button>
+      </div>
     </header>
 
     <main id="top">
-      <section class="hero">
-        <p class="eyebrow" id="greeting">你好，欢迎回来</p>
-        <h1>把常去的地方，<br /><span>收进一张地图。</span></h1>
-        <p class="hero-copy">一个轻量、安静的个人起始页。搜索信息，打开灵感，也给今天留一点从容。</p>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy-block">
+          <p class="eyebrow" id="greeting">你好，欢迎回来</p>
+          <h1 id="hero-title">今天，<br /><span>去哪里？</span></h1>
+          <p class="hero-copy">找一个答案，看一张好图，或者直接开始创造。这里收着你的日常入口。</p>
+          <div class="status-line" aria-live="polite">
+            <span id="currentDate"></span>
+            <span class="dot" aria-hidden="true"></span>
+            <span id="currentTime"></span>
+          </div>
+        </div>
 
-        <form class="search-box" id="searchForm" role="search">
-          <label class="sr-only" for="searchInput">使用必应搜索</label>
-          <span class="search-symbol" aria-hidden="true">⌕</span>
-          <input id="searchInput" name="q" type="search" placeholder="搜索你想知道的内容…" autocomplete="off" />
-          <button type="submit">搜索</button>
-        </form>
-
-        <div class="status-line" aria-live="polite">
-          <span id="currentDate"></span>
-          <span class="dot" aria-hidden="true"></span>
-          <span id="currentTime"></span>
+        <div class="wayfinder">
+          <div class="orbit orbit-outer" aria-hidden="true"><span>LOOK</span><span>MAKE</span><span>PLAY</span><span>LEARN</span></div>
+          <div class="orbit orbit-inner" aria-hidden="true"></div>
+          <div class="wayfinder-core">
+            <span class="core-kicker">SEARCH / BING</span>
+            <form class="search-box" id="searchForm" role="search">
+              <label class="sr-only" for="searchInput">使用必应搜索</label>
+              <input id="searchInput" name="q" type="search" placeholder="输入关键词" autocomplete="off" />
+              <button type="submit" aria-label="开始搜索">↗</button>
+            </form>
+            <span class="core-hint">按 Enter 打开新标签页</span>
+          </div>
         </div>
       </section>
 
       <section class="directory" aria-label="网站导航">
         <div class="section-heading">
           <div>
-            <p class="section-index">01 / DIRECTORY</p>
-            <h2>常用入口</h2>
+            <p class="section-tag">YOUR ROUTES</p>
+            <h2>从这里出发</h2>
           </div>
-          <p>点击卡片将在新标签页打开</p>
+          <p>四条路线，十六个目的地。所有链接都会在新标签页打开。</p>
         </div>
 
-        <div class="category-grid">
-          <article class="category-card category-blue">
-            <div class="category-title">
-              <span class="category-number">A</span>
-              <div><h3>日常工具</h3><p>搜索、沟通与效率</p></div>
-            </div>
-            <div class="link-list">
-              <a href="https://chatgpt.com/" target="_blank" rel="noreferrer"><span>ChatGPT</span><small>AI 助手</small></a>
-              <a href="https://www.bing.com/" target="_blank" rel="noreferrer"><span>Bing</span><small>网页搜索</small></a>
-              <a href="https://mail.qq.com/" target="_blank" rel="noreferrer"><span>QQ 邮箱</span><small>邮件</small></a>
-              <a href="https://www.aliyundrive.com/" target="_blank" rel="noreferrer"><span>阿里云盘</span><small>云端文件</small></a>
-            </div>
-          </article>
-
-          <article class="category-card category-coral">
-            <div class="category-title">
-              <span class="category-number">B</span>
-              <div><h3>创作灵感</h3><p>插画、设计与作品</p></div>
-            </div>
-            <div class="link-list">
-              <a href="https://www.pixiv.net/" target="_blank" rel="noreferrer"><span>Pixiv</span><small>插画社区</small></a>
-              <a href="https://www.artstation.com/" target="_blank" rel="noreferrer"><span>ArtStation</span><small>概念艺术</small></a>
-              <a href="https://www.behance.net/" target="_blank" rel="noreferrer"><span>Behance</span><small>设计作品</small></a>
-              <a href="https://www.zcool.com.cn/" target="_blank" rel="noreferrer"><span>站酷</span><small>国内设计</small></a>
+        <div class="route-stack">
+          <article class="route-row route-blue">
+            <header class="route-title">
+              <span class="route-swatch" aria-hidden="true"></span>
+              <div><h3>日常工具</h3><p>搜索 · 沟通 · 文件</p></div>
+            </header>
+            <div class="route-links">
+              <a href="https://chatgpt.com/" target="_blank" rel="noreferrer"><span class="site-glyph">AI</span><span><b>ChatGPT</b><small>想法与答案</small></span><i>↗</i></a>
+              <a href="https://www.bing.com/" target="_blank" rel="noreferrer"><span class="site-glyph">BI</span><span><b>Bing</b><small>网页搜索</small></span><i>↗</i></a>
+              <a href="https://mail.qq.com/" target="_blank" rel="noreferrer"><span class="site-glyph">QQ</span><span><b>QQ 邮箱</b><small>收发邮件</small></span><i>↗</i></a>
+              <a href="https://www.aliyundrive.com/" target="_blank" rel="noreferrer"><span class="site-glyph">CL</span><span><b>阿里云盘</b><small>云端文件</small></span><i>↗</i></a>
             </div>
           </article>
 
-          <article class="category-card category-green">
-            <div class="category-title">
-              <span class="category-number">C</span>
-              <div><h3>学习开发</h3><p>代码、文档与知识</p></div>
-            </div>
-            <div class="link-list">
-              <a href="https://github.com/" target="_blank" rel="noreferrer"><span>GitHub</span><small>代码托管</small></a>
-              <a href="https://developer.mozilla.org/zh-CN/" target="_blank" rel="noreferrer"><span>MDN</span><small>Web 文档</small></a>
-              <a href="https://stackoverflow.com/" target="_blank" rel="noreferrer"><span>Stack Overflow</span><small>技术问答</small></a>
-              <a href="https://www.runoob.com/" target="_blank" rel="noreferrer"><span>菜鸟教程</span><small>入门学习</small></a>
+          <article class="route-row route-pink">
+            <header class="route-title">
+              <span class="route-swatch" aria-hidden="true"></span>
+              <div><h3>创作灵感</h3><p>插画 · 设计 · 作品</p></div>
+            </header>
+            <div class="route-links">
+              <a href="https://www.pixiv.net/" target="_blank" rel="noreferrer"><span class="site-glyph">PX</span><span><b>Pixiv</b><small>插画社区</small></span><i>↗</i></a>
+              <a href="https://www.artstation.com/" target="_blank" rel="noreferrer"><span class="site-glyph">AS</span><span><b>ArtStation</b><small>概念艺术</small></span><i>↗</i></a>
+              <a href="https://www.behance.net/" target="_blank" rel="noreferrer"><span class="site-glyph">BE</span><span><b>Behance</b><small>设计作品</small></span><i>↗</i></a>
+              <a href="https://www.zcool.com.cn/" target="_blank" rel="noreferrer"><span class="site-glyph">ZC</span><span><b>站酷</b><small>国内设计</small></span><i>↗</i></a>
             </div>
           </article>
 
-          <article class="category-card category-violet">
-            <div class="category-title">
-              <span class="category-number">D</span>
-              <div><h3>影音娱乐</h3><p>视频、游戏与社区</p></div>
+          <article class="route-row route-green">
+            <header class="route-title">
+              <span class="route-swatch" aria-hidden="true"></span>
+              <div><h3>学习开发</h3><p>代码 · 文档 · 知识</p></div>
+            </header>
+            <div class="route-links">
+              <a href="https://github.com/" target="_blank" rel="noreferrer"><span class="site-glyph">GH</span><span><b>GitHub</b><small>代码托管</small></span><i>↗</i></a>
+              <a href="https://developer.mozilla.org/zh-CN/" target="_blank" rel="noreferrer"><span class="site-glyph">MD</span><span><b>MDN</b><small>Web 文档</small></span><i>↗</i></a>
+              <a href="https://stackoverflow.com/" target="_blank" rel="noreferrer"><span class="site-glyph">SO</span><span><b>Stack Overflow</b><small>技术问答</small></span><i>↗</i></a>
+              <a href="https://www.runoob.com/" target="_blank" rel="noreferrer"><span class="site-glyph">RT</span><span><b>菜鸟教程</b><small>入门学习</small></span><i>↗</i></a>
             </div>
-            <div class="link-list">
-              <a href="https://www.bilibili.com/" target="_blank" rel="noreferrer"><span>哔哩哔哩</span><small>视频社区</small></a>
-              <a href="https://www.youtube.com/" target="_blank" rel="noreferrer"><span>YouTube</span><small>全球视频</small></a>
-              <a href="https://store.steampowered.com/" target="_blank" rel="noreferrer"><span>Steam</span><small>游戏商店</small></a>
-              <a href="https://www.douban.com/" target="_blank" rel="noreferrer"><span>豆瓣</span><small>书影音</small></a>
+          </article>
+
+          <article class="route-row route-violet">
+            <header class="route-title">
+              <span class="route-swatch" aria-hidden="true"></span>
+              <div><h3>影音娱乐</h3><p>视频 · 游戏 · 社区</p></div>
+            </header>
+            <div class="route-links">
+              <a href="https://www.bilibili.com/" target="_blank" rel="noreferrer"><span class="site-glyph">BL</span><span><b>哔哩哔哩</b><small>视频社区</small></span><i>↗</i></a>
+              <a href="https://www.youtube.com/" target="_blank" rel="noreferrer"><span class="site-glyph">YT</span><span><b>YouTube</b><small>全球视频</small></span><i>↗</i></a>
+              <a href="https://store.steampowered.com/" target="_blank" rel="noreferrer"><span class="site-glyph">ST</span><span><b>Steam</b><small>游戏商店</small></span><i>↗</i></a>
+              <a href="https://www.douban.com/" target="_blank" rel="noreferrer"><span class="site-glyph">DB</span><span><b>豆瓣</b><small>书影音</small></span><i>↗</i></a>
             </div>
           </article>
         </div>
@@ -109,8 +129,8 @@
     </main>
 
     <footer>
-      <p>Designed for everyday wandering.</p>
-      <p>© <span id="currentYear"></span> M1597</p>
+      <p><b>M/1597</b> · PERSONAL WAYFINDER</p>
+      <p>为每天的灵感与出发而设计 · <span id="currentYear"></span></p>
     </footer>
 
     <script src="script.js"></script>

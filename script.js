@@ -5,23 +5,33 @@ const searchInput = document.querySelector("#searchInput");
 const currentDate = document.querySelector("#currentDate");
 const currentTime = document.querySelector("#currentTime");
 const greeting = document.querySelector("#greeting");
+const themeMeta = document.querySelector('meta[name="theme-color"]');
 
 const savedTheme = localStorage.getItem("nav-theme");
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
   root.dataset.theme = "dark";
+  themeMeta.content = "#0e1224";
 }
 
 themeToggle.addEventListener("click", () => {
   const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
   root.dataset.theme = nextTheme;
   localStorage.setItem("nav-theme", nextTheme);
+  themeMeta.content = nextTheme === "dark" ? "#0e1224" : "#eaf2ff";
 });
 
 searchForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const query = searchInput.value.trim();
   if (query) window.open(`https://www.bing.com/search?q=${encodeURIComponent(query)}`, "_blank", "noopener,noreferrer");
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "/" && document.activeElement !== searchInput) {
+    event.preventDefault();
+    searchInput.focus();
+  }
 });
 
 function updateClock() {
