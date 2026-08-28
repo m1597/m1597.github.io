@@ -23,7 +23,5 @@ function updateClock() {
 }
 
 document.querySelector("#currentYear").textContent = new Date().getFullYear();
-document.querySelector("#groupCount").textContent = document.querySelectorAll(".directory-group").length;
-document.querySelector("#linkCount").textContent = document.querySelectorAll(".directory-group nav a").length;
 updateClock();
 setInterval(updateClock, 30000);
