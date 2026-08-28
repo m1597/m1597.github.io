@@ -1,6 +1,5 @@
 const searchForm = document.querySelector("#searchForm");
 const searchInput = document.querySelector("#searchInput");
-const slides = [...document.querySelectorAll(".art-slide")];
 const currentDate = document.querySelector("#currentDate");
 const currentTime = document.querySelector("#currentTime");
 
@@ -16,16 +15,6 @@ document.addEventListener("keydown", (event) => {
     searchInput.focus();
   }
 });
-
-function selectSlide(selected) {
-  slides.forEach((slide) => {
-    const active = slide === selected;
-    slide.classList.toggle("is-active", active);
-    slide.setAttribute("aria-pressed", String(active));
-  });
-}
-
-slides.forEach((slide) => slide.addEventListener("click", () => selectSlide(slide)));
 
 function updateClock() {
   const now = new Date();
