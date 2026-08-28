@@ -3,118 +3,129 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="M1597 的个人导航站：在晴空与珊瑚色之间，快速抵达常用工具、灵感、学习和娱乐网站。" />
-    <meta name="theme-color" content="#079ff0" />
+    <meta name="description" content="M1597 的个人视觉导航：把常用网站放进喜欢的插画里。" />
+    <meta name="theme-color" content="#071b29" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Sky Index · M1597" />
-    <meta property="og:description" content="从这里，去往今天想看的地方。" />
+    <meta property="og:title" content="Visual Index · M1597" />
+    <meta property="og:description" content="五幅画，通往常去的地方。" />
     <meta property="og:url" content="https://m1597.github.io/" />
     <meta property="og:image" content="https://m1597.github.io/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Sky Index · M1597" />
-    <meta name="twitter:description" content="从这里，去往今天想看的地方。" />
+    <meta name="twitter:title" content="Visual Index · M1597" />
+    <meta name="twitter:description" content="五幅画，通往常去的地方。" />
     <meta name="twitter:image" content="https://m1597.github.io/og.png" />
     <link rel="canonical" href="https://m1597.github.io/" />
-    <title>Sky Index · M1597</title>
+    <title>Visual Index · M1597</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="返回首页">
+      <a class="brand" href="#cover" aria-label="返回开场">
         <span class="brand-mark">M</span>
-        <span><b>M1597</b><small>SKY INDEX</small></span>
+        <span><b>M1597</b><small>VISUAL INDEX</small></span>
       </a>
-      <div class="header-tools">
-        <span id="currentDate"></span>
-        <button id="themeToggle" class="theme-toggle" type="button" aria-label="切换明暗主题">
-          <span aria-hidden="true">☾</span><span id="themeLabel">夜航</span>
-        </button>
-      </div>
+      <div class="header-status"><span id="currentDate"></span><span class="status-dot"></span><span id="currentTime"></span></div>
     </header>
 
-    <main id="top">
-      <section class="hero" aria-labelledby="heroTitle">
-        <img class="hero-art" src="hero.jpg" alt="红发角色站在明亮蓝天下的插画" />
-        <span class="petal petal-one" aria-hidden="true"></span>
-        <span class="petal petal-two" aria-hidden="true"></span>
-        <div class="hero-copy">
-          <p class="eyebrow" id="greeting">欢迎回来</p>
-          <h1 id="heroTitle">去往<br /><span>喜欢的地方</span></h1>
-          <p class="intro">常用的入口不必藏进层层书签。选一个方向，现在就出发。</p>
+    <nav class="chapter-rail" aria-label="页面章节">
+      <a class="is-active" href="#cover"><span>开场</span><i></i></a>
+      <a href="#utility"><span>日常</span><i></i></a>
+      <a href="#inspiration"><span>灵感</span><i></i></a>
+      <a href="#learning"><span>学习</span><i></i></a>
+      <a href="#rest"><span>休息</span><i></i></a>
+    </nav>
 
+    <main>
+      <section class="cover observe" id="cover" data-section="cover" aria-labelledby="coverTitle">
+        <img class="cover-art" src="hero.jpg" alt="红发角色站在明亮蓝天下的插画" fetchpriority="high" />
+        <div class="cover-wash" aria-hidden="true"></div>
+        <div class="cover-copy">
+          <p class="kicker">YOUR FIVE-FRAME INTERNET</p>
+          <h1 id="coverTitle">五种情绪<br /><span>一个入口</span></h1>
+          <p class="lead">把常去的地方，放进喜欢的画里。</p>
           <form class="search" id="searchForm" role="search">
-            <label for="searchInput">SEARCH THE OPEN SKY</label>
-            <div class="search-line">
-              <input id="searchInput" name="q" type="search" placeholder="今天想找什么？" autocomplete="off" />
-              <button type="submit" aria-label="使用 Bing 搜索">↗</button>
+            <label for="searchInput">现在想找什么？</label>
+            <div>
+              <input id="searchInput" name="q" type="search" placeholder="输入关键词" autocomplete="off" />
+              <button type="submit">搜索 ↗</button>
             </div>
-            <small>按 <kbd>/</kbd> 直接搜索</small>
+            <small>按 <kbd>/</kbd> 快速搜索</small>
           </form>
-
-          <div class="hero-meta" aria-live="polite">
-            <span><i aria-hidden="true"></i><b id="currentTime"></b> LOCAL</span>
-            <a href="#destinations">查看全部入口 ↓</a>
-          </div>
         </div>
+        <a class="scroll-cue" href="#utility"><span>开始浏览</span><i>↓</i></a>
+        <p class="frame-label">FRAME / OPEN SKY</p>
       </section>
 
-      <section class="destinations" id="destinations" aria-labelledby="destinationsTitle">
-        <header class="section-heading">
-          <div>
-            <p>DESTINATIONS / 01—16</p>
-            <h2 id="destinationsTitle">选择目的地</h2>
-          </div>
-          <p>工具、灵感、知识和休息。<br />四条航线，十六个常驻坐标。</p>
-        </header>
-
-        <div class="route-list">
-          <article class="route route-coral">
-            <header><span>01</span><div><h3>日常补给</h3><p>UTILITY</p></div></header>
-            <nav aria-label="日常补给">
-              <a href="https://chatgpt.com/" target="_blank" rel="noreferrer"><b>ChatGPT</b><small>想法与答案</small><i>↗</i></a>
-              <a href="https://www.bing.com/" target="_blank" rel="noreferrer"><b>Bing</b><small>网页搜索</small><i>↗</i></a>
-              <a href="https://mail.qq.com/" target="_blank" rel="noreferrer"><b>QQ 邮箱</b><small>收发邮件</small><i>↗</i></a>
-              <a href="https://www.aliyundrive.com/" target="_blank" rel="noreferrer"><b>阿里云盘</b><small>云端文件</small><i>↗</i></a>
-            </nav>
-          </article>
-
-          <article class="route route-gold">
-            <header><span>02</span><div><h3>灵感采集</h3><p>INSPIRATION</p></div></header>
-            <nav aria-label="灵感采集">
-              <a href="https://www.pixiv.net/" target="_blank" rel="noreferrer"><b>Pixiv</b><small>插画社区</small><i>↗</i></a>
-              <a href="https://www.artstation.com/" target="_blank" rel="noreferrer"><b>ArtStation</b><small>概念艺术</small><i>↗</i></a>
-              <a href="https://www.behance.net/" target="_blank" rel="noreferrer"><b>Behance</b><small>设计作品</small><i>↗</i></a>
-              <a href="https://www.zcool.com.cn/" target="_blank" rel="noreferrer"><b>站酷</b><small>国内设计</small><i>↗</i></a>
-            </nav>
-          </article>
-
-          <article class="route route-sky">
-            <header><span>03</span><div><h3>知识航线</h3><p>LEARNING</p></div></header>
-            <nav aria-label="知识航线">
-              <a href="https://github.com/" target="_blank" rel="noreferrer"><b>GitHub</b><small>代码托管</small><i>↗</i></a>
-              <a href="https://developer.mozilla.org/zh-CN/" target="_blank" rel="noreferrer"><b>MDN</b><small>Web 文档</small><i>↗</i></a>
-              <a href="https://stackoverflow.com/" target="_blank" rel="noreferrer"><b>Stack Overflow</b><small>技术问答</small><i>↗</i></a>
-              <a href="https://www.runoob.com/" target="_blank" rel="noreferrer"><b>菜鸟教程</b><small>入门学习</small><i>↗</i></a>
-            </nav>
-          </article>
-
-          <article class="route route-violet">
-            <header><span>04</span><div><h3>自由时间</h3><p>OFF DUTY</p></div></header>
-            <nav aria-label="自由时间">
-              <a href="https://www.bilibili.com/" target="_blank" rel="noreferrer"><b>哔哩哔哩</b><small>视频社区</small><i>↗</i></a>
-              <a href="https://www.youtube.com/" target="_blank" rel="noreferrer"><b>YouTube</b><small>全球视频</small><i>↗</i></a>
-              <a href="https://store.steampowered.com/" target="_blank" rel="noreferrer"><b>Steam</b><small>游戏商店</small><i>↗</i></a>
-              <a href="https://www.douban.com/" target="_blank" rel="noreferrer"><b>豆瓣</b><small>书影音</small><i>↗</i></a>
-            </nav>
-          </article>
+      <section class="chapter chapter-utility panel-left observe" id="utility" data-section="utility" aria-labelledby="utilityTitle">
+        <img class="chapter-art" src="art-sunset.jpg" alt="橙发角色站在晚霞天空中的插画" loading="lazy" decoding="async" />
+        <div class="chapter-shade" aria-hidden="true"></div>
+        <div class="chapter-card">
+          <p class="chapter-tag">UTILITY · 日常补给</p>
+          <h2 id="utilityTitle">先把事情<br />推进一点</h2>
+          <p class="chapter-intro">搜索、沟通和文件，都从这里开始。</p>
+          <nav class="link-list" aria-label="日常补给网站">
+            <a href="https://chatgpt.com/" target="_blank" rel="noreferrer"><span><b>ChatGPT</b><small>想法与答案</small></span><i>↗</i></a>
+            <a href="https://www.bing.com/" target="_blank" rel="noreferrer"><span><b>Bing</b><small>网页搜索</small></span><i>↗</i></a>
+            <a href="https://mail.qq.com/" target="_blank" rel="noreferrer"><span><b>QQ 邮箱</b><small>收发邮件</small></span><i>↗</i></a>
+            <a href="https://www.aliyundrive.com/" target="_blank" rel="noreferrer"><span><b>阿里云盘</b><small>云端文件</small></span><i>↗</i></a>
+          </nav>
         </div>
+        <p class="frame-label">FRAME / SUNSET CURRENT</p>
+      </section>
+
+      <section class="chapter chapter-inspiration panel-right observe" id="inspiration" data-section="inspiration" aria-labelledby="inspirationTitle">
+        <img class="chapter-art" src="art-ribbons.jpg" alt="青绿色双马尾角色在彩色丝带之间舞动的插画" loading="lazy" decoding="async" />
+        <div class="chapter-shade" aria-hidden="true"></div>
+        <div class="chapter-card">
+          <p class="chapter-tag">INSPIRATION · 灵感采集</p>
+          <h2 id="inspirationTitle">去看新的<br />颜色与线条</h2>
+          <p class="chapter-intro">收集好图、构图和那些还说不清的灵感。</p>
+          <nav class="link-list" aria-label="灵感采集网站">
+            <a href="https://www.pixiv.net/" target="_blank" rel="noreferrer"><span><b>Pixiv</b><small>插画社区</small></span><i>↗</i></a>
+            <a href="https://www.artstation.com/" target="_blank" rel="noreferrer"><span><b>ArtStation</b><small>概念艺术</small></span><i>↗</i></a>
+            <a href="https://www.behance.net/" target="_blank" rel="noreferrer"><span><b>Behance</b><small>设计作品</small></span><i>↗</i></a>
+            <a href="https://www.zcool.com.cn/" target="_blank" rel="noreferrer"><span><b>站酷</b><small>国内设计</small></span><i>↗</i></a>
+          </nav>
+        </div>
+        <p class="frame-label">FRAME / RIBBON LIGHT</p>
+      </section>
+
+      <section class="chapter chapter-learning panel-left observe" id="learning" data-section="learning" aria-labelledby="learningTitle">
+        <img class="chapter-art" src="art-ink.jpg" alt="黑白线稿人物与电光蓝枝条构成的插画" loading="lazy" decoding="async" />
+        <div class="chapter-shade" aria-hidden="true"></div>
+        <div class="chapter-card">
+          <p class="chapter-tag">LEARNING · 知识航线</p>
+          <h2 id="learningTitle">沿着问题<br />找到答案</h2>
+          <p class="chapter-intro">代码、文档和经验，留给真正想弄明白的时刻。</p>
+          <nav class="link-list" aria-label="学习网站">
+            <a href="https://github.com/" target="_blank" rel="noreferrer"><span><b>GitHub</b><small>代码托管</small></span><i>↗</i></a>
+            <a href="https://developer.mozilla.org/zh-CN/" target="_blank" rel="noreferrer"><span><b>MDN</b><small>Web 文档</small></span><i>↗</i></a>
+            <a href="https://stackoverflow.com/" target="_blank" rel="noreferrer"><span><b>Stack Overflow</b><small>技术问答</small></span><i>↗</i></a>
+            <a href="https://www.runoob.com/" target="_blank" rel="noreferrer"><span><b>菜鸟教程</b><small>入门学习</small></span><i>↗</i></a>
+          </nav>
+        </div>
+        <p class="frame-label">FRAME / BLUE INK</p>
+      </section>
+
+      <section class="chapter chapter-rest panel-right observe" id="rest" data-section="rest" aria-labelledby="restTitle">
+        <img class="chapter-art" src="art-red.jpg" alt="黑发角色与红黑色动态笔触构成的插画" loading="lazy" decoding="async" />
+        <div class="chapter-shade" aria-hidden="true"></div>
+        <div class="chapter-card">
+          <p class="chapter-tag">OFF DUTY · 自由时间</p>
+          <h2 id="restTitle">把时间<br />还给自己</h2>
+          <p class="chapter-intro">看点东西，玩一会儿，或者挑下一部电影。</p>
+          <nav class="link-list" aria-label="休息娱乐网站">
+            <a href="https://www.bilibili.com/" target="_blank" rel="noreferrer"><span><b>哔哩哔哩</b><small>视频社区</small></span><i>↗</i></a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noreferrer"><span><b>YouTube</b><small>全球视频</small></span><i>↗</i></a>
+            <a href="https://store.steampowered.com/" target="_blank" rel="noreferrer"><span><b>Steam</b><small>游戏商店</small></span><i>↗</i></a>
+            <a href="https://www.douban.com/" target="_blank" rel="noreferrer"><span><b>豆瓣</b><small>书影音</small></span><i>↗</i></a>
+          </nav>
+        </div>
+        <p class="frame-label">FRAME / RED SIGNAL</p>
       </section>
     </main>
 
-    <footer>
-      <p>M1597 / PERSONAL NAVIGATION</p>
-      <p>BLUE SKIES SINCE <span id="currentYear"></span></p>
-    </footer>
+    <footer><span>M1597 / PERSONAL NAVIGATION</span><span>FIVE FRAMES · <b id="currentYear"></b></span></footer>
     <script src="script.js"></script>
   </body>
 </html>
