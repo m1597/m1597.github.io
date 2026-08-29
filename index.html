@@ -3,111 +3,145 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="M1597 的个人视觉导航：每个分区，一幅喜欢的画。" />
+    <meta name="description" content="M1597 的个人视觉导航：搜索、日常工具、灵感、学习与休息，一页快速抵达。" />
     <meta name="theme-color" content="#e8eef0" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Visual Index · M1597" />
     <meta property="og:description" content="每个分区，一幅喜欢的画。" />
     <meta property="og:url" content="https://m1597.github.io/" />
-    <meta property="og:image" content="https://m1597.github.io/og.png" />
+    <meta property="og:image" content="https://m1597.github.io/og.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Visual Index · M1597" />
     <meta name="twitter:description" content="每个分区，一幅喜欢的画。" />
-    <meta name="twitter:image" content="https://m1597.github.io/og.png" />
+    <meta name="twitter:image" content="https://m1597.github.io/og.jpg" />
     <link rel="canonical" href="https://m1597.github.io/" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="hero.webp" as="image" type="image/webp" fetchpriority="high" />
     <title>Visual Index · M1597</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=2" />
   </head>
   <body>
+    <a class="skip-link" href="#searchInput">跳到搜索</a>
     <header class="site-header">
-      <a class="brand" href="#search" aria-label="返回搜索分区">
-        <span class="brand-mark">M</span>
+      <a class="brand" href="#search" aria-label="M1597，返回搜索分区">
+        <span class="brand-mark" aria-hidden="true">M</span>
         <span><b>M1597</b><small>VISUAL INDEX</small></span>
       </a>
       <nav class="section-nav" aria-label="分区导航">
-        <a href="#search">搜索</a><a href="#daily">日常</a><a href="#inspiration">灵感</a><a href="#learning">学习</a><a href="#rest">休息</a>
+        <a href="#search" data-zone-link="search" aria-current="location">搜索</a>
+        <a href="#daily" data-zone-link="daily">日常</a>
+        <a href="#inspiration" data-zone-link="inspiration">灵感</a>
+        <a href="#learning" data-zone-link="learning">学习</a>
+        <a href="#rest" data-zone-link="rest">休息</a>
       </nav>
-      <div class="header-time"><i aria-hidden="true"></i><span id="currentTime"></span></div>
+      <div class="header-tools">
+        <time class="header-time" aria-label="当前日期和时间">
+          <i aria-hidden="true"></i><span id="currentDate"></span><b id="currentTime"></b>
+        </time>
+        <button class="manage-trigger" type="button" data-open-manager aria-haspopup="dialog">管理链接</button>
+      </div>
     </header>
 
     <main>
-      <section class="zone zone-search image-right" id="search" aria-labelledby="searchTitle">
-        <div class="zone-media"><img src="hero.jpg" alt="红发角色与晴空" fetchpriority="high" /></div>
+      <section class="zone zone-search image-right" id="search" aria-labelledby="searchTitle" data-zone="search">
+        <div class="zone-media">
+          <picture><source srcset="hero.webp" type="image/webp" /><img src="hero.jpg" alt="红发角色与晴空" width="1100" height="1192" fetchpriority="high" /></picture>
+        </div>
         <div class="zone-content">
           <p class="zone-label">SEARCH / 从这里出发</p>
           <h1 id="searchTitle">今天想去<br /><span>哪里？</span></h1>
           <p class="zone-intro">搜索一个答案，或者沿着下面的分区直接抵达。</p>
           <form class="search-box" id="searchForm" role="search">
-            <label for="searchInput">输入关键词</label>
-            <div><input id="searchInput" name="q" type="search" placeholder="例如：天气、教程、灵感" autocomplete="off" /><button type="submit">搜索 ↗</button></div>
-            <small>按 <kbd>/</kbd> 快速回到这里</small>
+            <label class="sr-only" for="searchInput">输入搜索关键词</label>
+            <div class="search-row">
+              <label class="sr-only" for="searchEngine">选择搜索引擎</label>
+              <select id="searchEngine" name="engine" aria-label="搜索引擎">
+                <option value="bing">Bing</option><option value="google">Google</option><option value="baidu">百度</option><option value="duckduckgo">DuckDuckGo</option>
+              </select>
+              <input id="searchInput" name="q" type="search" placeholder="天气、教程、灵感……" autocomplete="off" enterkeyhint="search" />
+              <button type="submit">搜索 <span aria-hidden="true">↗</span></button>
+            </div>
+            <p class="search-hint"><kbd>/</kbd> 搜索 · <kbd>Alt</kbd> + <kbd>1–5</kbd> 切换分区</p>
           </form>
-          <a class="next-zone" href="#daily">向下浏览分区 ↓</a>
+          <section class="recent-panel" aria-labelledby="recentTitle">
+            <div class="recent-heading"><h2 id="recentTitle">最近访问</h2><button type="button" id="clearRecent" hidden>清空</button></div>
+            <div class="recent-links" id="recentLinks" aria-live="polite"><p class="recent-empty">打开下方链接后，这里会记录最近使用的网站。</p></div>
+          </section>
+          <a class="next-zone" href="#daily">向下浏览分区 <span aria-hidden="true">↓</span></a>
         </div>
       </section>
 
-      <section class="zone zone-daily image-left" id="daily" aria-labelledby="dailyTitle">
-        <div class="zone-media"><img src="art-sunset.jpg" alt="橙发角色与晚霞" loading="lazy" decoding="async" /></div>
+      <section class="zone zone-daily image-left" id="daily" aria-labelledby="dailyTitle" data-zone="daily">
+        <div class="zone-media"><picture><source srcset="art-sunset.webp" type="image/webp" /><img src="art-sunset.jpg" alt="橙发角色与晚霞" width="1001" height="1200" loading="lazy" decoding="async" /></picture></div>
         <div class="zone-content">
-          <p class="zone-label">UTILITY / 日常补给</p>
-          <h2 id="dailyTitle">先把事情<br />推进一点</h2>
-          <p class="zone-intro">搜索、沟通和文件，都从这里开始。</p>
-          <nav class="link-grid" aria-label="日常补给网站">
-            <a href="https://chatgpt.com/" target="_blank" rel="noreferrer"><span><b>ChatGPT</b><small>想法与答案</small></span><i>↗</i></a>
-            <a href="https://www.bing.com/" target="_blank" rel="noreferrer"><span><b>Bing</b><small>网页搜索</small></span><i>↗</i></a>
-            <a href="https://mail.qq.com/" target="_blank" rel="noreferrer"><span><b>QQ 邮箱</b><small>收发邮件</small></span><i>↗</i></a>
-            <a href="https://www.aliyundrive.com/" target="_blank" rel="noreferrer"><span><b>阿里云盘</b><small>云端文件</small></span><i>↗</i></a>
+          <p class="zone-label">UTILITY / 日常补给</p><h2 id="dailyTitle">先把事情<br />推进一点</h2><p class="zone-intro">搜索、沟通和文件，都从这里开始。</p>
+          <nav class="link-grid" aria-label="日常补给网站" data-category="日常">
+            <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" data-link-key="daily-0"><em>C</em><span><b>ChatGPT</b><small>想法与答案</small></span><i>↗</i></a>
+            <a href="https://www.bing.com/" target="_blank" rel="noopener noreferrer" data-link-key="daily-1"><em>B</em><span><b>Bing</b><small>网页搜索</small></span><i>↗</i></a>
+            <a href="https://mail.qq.com/" target="_blank" rel="noopener noreferrer" data-link-key="daily-2"><em>Q</em><span><b>QQ 邮箱</b><small>收发邮件</small></span><i>↗</i></a>
+            <a href="https://www.aliyundrive.com/" target="_blank" rel="noopener noreferrer" data-link-key="daily-3"><em>A</em><span><b>阿里云盘</b><small>云端文件</small></span><i>↗</i></a>
           </nav>
         </div>
       </section>
 
-      <section class="zone zone-inspiration image-right" id="inspiration" aria-labelledby="inspirationTitle">
-        <div class="zone-media"><img src="art-ribbons.jpg" alt="青绿色双马尾角色与彩色丝带" loading="lazy" decoding="async" /></div>
+      <section class="zone zone-inspiration image-right" id="inspiration" aria-labelledby="inspirationTitle" data-zone="inspiration">
+        <div class="zone-media"><picture><source srcset="art-ribbons.webp" type="image/webp" /><img src="art-ribbons.jpg" alt="青绿色双马尾角色与彩色丝带" width="854" height="1200" loading="lazy" decoding="async" /></picture></div>
         <div class="zone-content">
-          <p class="zone-label">INSPIRATION / 灵感采集</p>
-          <h2 id="inspirationTitle">去看新的<br />颜色与线条</h2>
-          <p class="zone-intro">收集好图、构图和那些还说不清的灵感。</p>
-          <nav class="link-grid" aria-label="灵感采集网站">
-            <a href="https://www.pixiv.net/" target="_blank" rel="noreferrer"><span><b>Pixiv</b><small>插画社区</small></span><i>↗</i></a>
-            <a href="https://www.artstation.com/" target="_blank" rel="noreferrer"><span><b>ArtStation</b><small>概念艺术</small></span><i>↗</i></a>
-            <a href="https://www.behance.net/" target="_blank" rel="noreferrer"><span><b>Behance</b><small>设计作品</small></span><i>↗</i></a>
-            <a href="https://www.zcool.com.cn/" target="_blank" rel="noreferrer"><span><b>站酷</b><small>国内设计</small></span><i>↗</i></a>
+          <p class="zone-label">INSPIRATION / 灵感采集</p><h2 id="inspirationTitle">去看新的<br />颜色与线条</h2><p class="zone-intro">收集好图、构图和那些还说不清的灵感。</p>
+          <nav class="link-grid" aria-label="灵感采集网站" data-category="灵感">
+            <a href="https://www.pixiv.net/" target="_blank" rel="noopener noreferrer" data-link-key="inspiration-0"><em>P</em><span><b>Pixiv</b><small>插画社区</small></span><i>↗</i></a>
+            <a href="https://www.artstation.com/" target="_blank" rel="noopener noreferrer" data-link-key="inspiration-1"><em>A</em><span><b>ArtStation</b><small>概念艺术</small></span><i>↗</i></a>
+            <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer" data-link-key="inspiration-2"><em>B</em><span><b>Behance</b><small>设计作品</small></span><i>↗</i></a>
+            <a href="https://www.zcool.com.cn/" target="_blank" rel="noopener noreferrer" data-link-key="inspiration-3"><em>Z</em><span><b>站酷</b><small>国内设计</small></span><i>↗</i></a>
           </nav>
         </div>
       </section>
 
-      <section class="zone zone-learning image-left" id="learning" aria-labelledby="learningTitle">
-        <div class="zone-media"><img src="art-ink.jpg" alt="黑白人物线稿与电光蓝枝条" loading="lazy" decoding="async" /></div>
+      <section class="zone zone-learning image-left" id="learning" aria-labelledby="learningTitle" data-zone="learning">
+        <div class="zone-media"><picture><source srcset="art-ink.webp" type="image/webp" /><img src="art-ink.jpg" alt="黑白人物线稿与电光蓝枝条" width="686" height="1200" loading="lazy" decoding="async" /></picture></div>
         <div class="zone-content">
-          <p class="zone-label">LEARNING / 知识航线</p>
-          <h2 id="learningTitle">沿着问题<br />找到答案</h2>
-          <p class="zone-intro">代码、文档和经验，留给真正想弄明白的时刻。</p>
-          <nav class="link-grid" aria-label="学习网站">
-            <a href="https://github.com/" target="_blank" rel="noreferrer"><span><b>GitHub</b><small>代码托管</small></span><i>↗</i></a>
-            <a href="https://developer.mozilla.org/zh-CN/" target="_blank" rel="noreferrer"><span><b>MDN</b><small>Web 文档</small></span><i>↗</i></a>
-            <a href="https://stackoverflow.com/" target="_blank" rel="noreferrer"><span><b>Stack Overflow</b><small>技术问答</small></span><i>↗</i></a>
-            <a href="https://www.runoob.com/" target="_blank" rel="noreferrer"><span><b>菜鸟教程</b><small>入门学习</small></span><i>↗</i></a>
+          <p class="zone-label">LEARNING / 知识航线</p><h2 id="learningTitle">沿着问题<br />找到答案</h2><p class="zone-intro">代码、文档和经验，留给真正想弄明白的时刻。</p>
+          <nav class="link-grid" aria-label="学习网站" data-category="学习">
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" data-link-key="learning-0"><em>G</em><span><b>GitHub</b><small>代码托管</small></span><i>↗</i></a>
+            <a href="https://developer.mozilla.org/zh-CN/" target="_blank" rel="noopener noreferrer" data-link-key="learning-1"><em>M</em><span><b>MDN</b><small>Web 文档</small></span><i>↗</i></a>
+            <a href="https://stackoverflow.com/" target="_blank" rel="noopener noreferrer" data-link-key="learning-2"><em>S</em><span><b>Stack Overflow</b><small>技术问答</small></span><i>↗</i></a>
+            <a href="https://www.runoob.com/" target="_blank" rel="noopener noreferrer" data-link-key="learning-3"><em>R</em><span><b>菜鸟教程</b><small>入门学习</small></span><i>↗</i></a>
           </nav>
         </div>
       </section>
 
-      <section class="zone zone-rest image-right" id="rest" aria-labelledby="restTitle">
-        <div class="zone-media"><img src="art-red.jpg" alt="黑发角色与红黑色笔触" loading="lazy" decoding="async" /></div>
+      <section class="zone zone-rest image-right" id="rest" aria-labelledby="restTitle" data-zone="rest">
+        <div class="zone-media"><picture><source srcset="art-red.webp" type="image/webp" /><img src="art-red.jpg" alt="黑发角色与红黑色笔触" width="1200" height="829" loading="lazy" decoding="async" /></picture></div>
         <div class="zone-content">
-          <p class="zone-label">OFF DUTY / 自由时间</p>
-          <h2 id="restTitle">把时间<br />还给自己</h2>
-          <p class="zone-intro">看点东西，玩一会儿，或者挑下一部电影。</p>
-          <nav class="link-grid" aria-label="休息娱乐网站">
-            <a href="https://www.bilibili.com/" target="_blank" rel="noreferrer"><span><b>哔哩哔哩</b><small>视频社区</small></span><i>↗</i></a>
-            <a href="https://www.youtube.com/" target="_blank" rel="noreferrer"><span><b>YouTube</b><small>全球视频</small></span><i>↗</i></a>
-            <a href="https://store.steampowered.com/" target="_blank" rel="noreferrer"><span><b>Steam</b><small>游戏商店</small></span><i>↗</i></a>
-            <a href="https://www.douban.com/" target="_blank" rel="noreferrer"><span><b>豆瓣</b><small>书影音</small></span><i>↗</i></a>
+          <p class="zone-label">OFF DUTY / 自由时间</p><h2 id="restTitle">把时间<br />还给自己</h2><p class="zone-intro">看点东西，玩一会儿，或者挑下一部电影。</p>
+          <nav class="link-grid" aria-label="休息娱乐网站" data-category="休息">
+            <a href="https://www.bilibili.com/" target="_blank" rel="noopener noreferrer" data-link-key="rest-0"><em>B</em><span><b>哔哩哔哩</b><small>视频社区</small></span><i>↗</i></a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" data-link-key="rest-1"><em>Y</em><span><b>YouTube</b><small>全球视频</small></span><i>↗</i></a>
+            <a href="https://store.steampowered.com/" target="_blank" rel="noopener noreferrer" data-link-key="rest-2"><em>S</em><span><b>Steam</b><small>游戏商店</small></span><i>↗</i></a>
+            <a href="https://www.douban.com/" target="_blank" rel="noopener noreferrer" data-link-key="rest-3"><em>D</em><span><b>豆瓣</b><small>书影音</small></span><i>↗</i></a>
           </nav>
         </div>
       </section>
     </main>
 
+    <aside class="zone-rail" aria-label="当前分区">
+      <span class="rail-line" aria-hidden="true"></span>
+      <a href="#search" data-zone-link="search" aria-label="搜索"><i></i><span>搜索</span></a><a href="#daily" data-zone-link="daily" aria-label="日常"><i></i><span>日常</span></a><a href="#inspiration" data-zone-link="inspiration" aria-label="灵感"><i></i><span>灵感</span></a><a href="#learning" data-zone-link="learning" aria-label="学习"><i></i><span>学习</span></a><a href="#rest" data-zone-link="rest" aria-label="休息"><i></i><span>休息</span></a>
+    </aside>
     <footer><span>M1597 / PERSONAL NAVIGATION</span><span>FIVE ZONES · <b id="currentYear"></b></span></footer>
-    <script src="script.js"></script>
+
+    <dialog class="link-manager" id="linkManager" aria-labelledby="managerTitle">
+      <div class="manager-head"><div><p>LOCAL SETTINGS</p><h2 id="managerTitle">管理导航链接</h2></div><button type="button" class="dialog-close" data-close-manager aria-label="关闭">×</button></div>
+      <p class="manager-note">修改只保存在当前浏览器，不会上传，也不会改变其他设备。</p>
+      <form id="linkEditor">
+        <label for="linkChoice">选择链接</label><select id="linkChoice"></select>
+        <div class="field-row"><label for="linkName">名称</label><input id="linkName" name="name" maxlength="32" required /></div>
+        <div class="field-row"><label for="linkDescription">说明</label><input id="linkDescription" name="description" maxlength="40" required /></div>
+        <div class="field-row"><label for="linkUrl">网址</label><input id="linkUrl" name="url" type="url" inputmode="url" required /></div>
+        <div class="manager-actions"><button class="secondary" type="button" id="resetLink">恢复当前</button><button class="secondary danger" type="button" id="resetAllLinks">恢复全部</button><button class="primary" type="submit">保存修改</button></div>
+      </form>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="script.js?v=2"></script>
   </body>
 </html>
